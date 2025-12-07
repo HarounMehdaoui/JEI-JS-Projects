@@ -41,7 +41,7 @@ body{
 }
 
 .todoapp h1 {
-    font-size: 2rem;
+    font-size: clamp(1.25rem, 2.5vw + 0.75rem, 2rem);
     font-weight: 700;
     letter-spacing: 2px;
 }
@@ -51,17 +51,21 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 8px;
+    --control-h: 40px;
 }
 
 .input-area input {
     flex: 1;
-    padding: 10px 17px;
+    height: var(--control-h);
+    min-width: 0;
+    padding: 0 17px;
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 7px;
-    font-size: 1rem;
+    font-size: clamp(.9rem, 2vw, 1rem);
     outline: none;
     background-color: rgba(85, 107, 47, 0.25);
-    color: white;
+    color: #fff;
 }
 
 .input-area input::placeholder {
@@ -70,11 +74,13 @@ body{
 }
 
 .input-area button {
-    margin-left: 10px;
-    padding: 10px 15px;
+    flex-shrink: 0;
+    min-width: 28px;
+    height: var(--control-h);
+    padding: 0 10px;
     color: rgba(219, 219, 219, 0.7);
     background-color: rgba(85, 107, 47, 0.25);
-    font-size: 1rem;
+    font-size: .85rem;
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 7px;
     cursor: pointer;
@@ -82,12 +88,18 @@ body{
     justify-content: center;
     align-items: center;
     transition: all 0.3s ease;
+    touch-action: manipulation;
 }
 
 .input-area button:hover {
     transform: scale(1.02);
     background-color: rgba(85, 107, 47, 0.45);
     color: white;
+}
+
+.input-area input:hover,
+.input-area input:focus {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.18);
 }
 
 .todos-container {  
@@ -121,13 +133,13 @@ body{
     margin-bottom: 10px;
     padding: 8px 10px;
     border-radius: 7px;
-    font-size: 1rem;
+    font-size: clamp(.9rem, 2vw, 1rem);
     color: #fff;
     position: relative;
     transition: box-shadow 0.2s ease;
     max-width: 100%;
     overflow: hidden;
-    height: 40px;
+    min-height: 40px;
     border: 1px solid rgba(255, 255, 255, 0.18);
 
 }
@@ -217,22 +229,30 @@ body{
 
 @media (max-width: 600px) {
     .container {
-        margin: 0 20px;
-        padding: 0 10px;
+        margin: 0 12px;
+        padding: 0 8px;
     }
-    .todo-app {
-        padding: 1.5rem;
+    .todoapp {
+        padding: 1.25rem;
         gap: 20px;
+        max-width: 360px;
     }
-    #numbers {
-        width: 60px;
-        height: 60px;
-        font-size: 1rem;
+    .input-area button {
+        padding: 10px 12px;
     }
-    .input-area input {
-        font-size: 1rem;
+}
+
+@media (max-width: 380px) {
+    .todoapp {
+        padding: 1rem;
+        gap: 16px;
+        max-width: 320px;
+    }
+    .input-area button {
+        margin-left: 8px;
+        padding: 10px 10px;
     }
     #task-list li {
-        font-size: 0.9rem;
+        padding: 8px;
     }
 }
