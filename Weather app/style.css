@@ -1,88 +1,213 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background: linear-gradient(to right, #4CAF50, #2196F3);
+    background: url('https://images.unsplash.com/photo-1534088568595-a066f410bcda?q=80&w=2000') center/cover no-repeat;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    position: relative;
 }
 
-.container {
+body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(230, 235, 240, 0.3);
+    backdrop-filter: blur(2px);
+}
+
+main {
+    width: 420px;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    padding: 40px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+main:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2);
+}
+
+main form {
+    display: flex;
+    border: 2px solid rgba(200, 210, 220, 0.4);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+main form:focus-within {
+    border-color: rgba(160, 180, 200, 0.6);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+main form input {
+    flex: 1;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    padding: 16px 20px;
+    font-size: 15px;
+    color: #4a5568;
+    font-weight: 500;
+}
+
+main form input::placeholder {
+    color: rgba(100, 120, 140, 0.5);
+}
+
+main form button {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    padding: 16px 20px;
+    cursor: pointer;
+    color: #718096;
+    transition: color 0.2s ease;
+}
+
+main form button:hover {
+    color: #4a5568;
+}
+
+main form i {
+    font-size: 16px;
+}
+
+main .result {
+    padding-top: 28px;
     text-align: center;
 }
 
-.weather-card {
-    background-color: rgba(255, 255, 255, 0.95);
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-    width: 450px;
+main .result .name {
+    font-weight: 600;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #2d3748;
+    margin-bottom: 8px;
 }
 
-.weather-card:hover {
-    transform: scale(1.05);
+main .result .name img {
+    opacity: 0.9;
 }
 
-#city-input {
-    padding: 15px;
-    margin: 10px 0;
-    width: 70%;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+main .temperature {
+    margin: 20px 0;
+}
+
+main .temperature img {
+    width: 120px;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+}
+
+main .temperature figcaption {
+    font-size: 3.5em;
+    font-weight: 300;
+    color: #2d3748;
+    margin-top: -10px;
+}
+
+main .description {
+    padding: 10px 0 24px;
+    color: #4a5568;
     font-size: 16px;
+    text-transform: capitalize;
+    font-weight: 500;
 }
 
-#city-input:focus {
-    outline: none;
-    border-color: #2196F3;
+main ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
 }
 
-#city-input::placeholder {
-    color: #aaa;
+main li {
+    background: rgba(255, 255, 255, 0.5);
+    color: #2d3748;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    padding: 22px 14px;
+    font-size: 13px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: default;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-#city-input-btn {
-    padding: 10px;
-    background-color: #2196F3;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
+main li:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
-#city-input-btn:hover {
-    background-color: #1565C0;
+main li span:first-child {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 11px;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
 }
 
-#weather-info {
-    display: none;
+main ul li i {
+    font-size: 28px;
+    margin: 12px 0;
+    display: block;
+    opacity: 0.85;
+    color: #4a5568;
 }
 
-#weather-icon {
-    width: 100px;
-    height: 100px;
-}
-
-#temperature {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 8px 0;
-}
-
-#description {
+main li span:last-child {
+    display: block;
+    margin-top: 8px;
     font-size: 18px;
-    margin-bottom: 10px;
+    font-weight: 600;
 }
 
-#wind-speed {
-    font-size: 16px;
-    color: rgb(255, 0, 0);
+main li:nth-child(2) {
+    background: rgba(255, 255, 255, 0.6);
 }
 
-#date {
-    font-size: 14px;
-    color: rgb(255, 0, 0);
+main li:nth-child(3) {
+    background: rgba(255, 255, 255, 0.55);
+}
+
+main.error {
+    animation: errorEffect 0.3s ease-in-out;
+}
+@keyframes errorEffect{
+    0%{
+        transform: translate(10px, 5px)
+    }
+    25%{
+        transform: translate(-5px, 0)
+    }
+    50%{
+        transform: translate(8px, 2px)
+    }
+    75%{
+        transform: translate(-2px, 5px)
+    }
+    100%{
+        transform: translate(0, 0); 
+    }
 }
