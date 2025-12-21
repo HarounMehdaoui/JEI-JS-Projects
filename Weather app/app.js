@@ -39,7 +39,6 @@ const searchWeather = () => {
             valueSearch.value = '';
         })
 }
-// search Default
 const initApp = () => {
     valueSearch.value = 'Tunis';
     searchWeather();

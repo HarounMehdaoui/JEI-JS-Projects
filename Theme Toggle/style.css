@@ -1,0 +1,54 @@
+:root{
+    --bg-color: #f0f0f0;
+}
+
+.dark-theme{
+    --bg-color: #333;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    margin: 0;
+    background-color: var(--bg-color);
+}
+
+.text-container {
+    display: flex;
+    align-items: center;
+}
+
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    font-family: Arial, sans-serif;
+    font-size: 10rem;
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+#L {
+    color: #333;
+}
+
+#D {
+    color: #f0f0f0;
+}
+
+.center-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 40px;
+}
