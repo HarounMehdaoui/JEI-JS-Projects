@@ -1,0 +1,70 @@
+:root{
+    --bg-color: #f0f0f0;
+    --icon-color: #333;
+}
+
+.dark-theme{
+    --bg-color: #333;
+    --icon-color: #f0f0f0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    margin: 0;
+    background-color: var(--bg-color);
+    transition: background-color 0.3s ease;
+}
+
+.material-symbols-outlined {
+  color: var(--icon-color);
+  transition: color 0.3s ease;
+  font-size: 6rem;
+}
+
+
+
+.text-container {
+    display: flex;
+    align-items: center;
+}
+
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+h2 {
+    font-family: Arial, sans-serif;
+    font-size: 10rem;
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+#L {
+    color: #333;
+}
+
+#D {
+    color: #f0f0f0;
+}
+
+.center-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 40px;
+}
+
